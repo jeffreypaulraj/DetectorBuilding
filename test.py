@@ -27,6 +27,10 @@ channel = AnalogIn(mcp, MCP.P0)
 while True:
         print('Raw ADC Value: ', channel.value)
         print('ADC Voltage: ' + str(channel.voltage) + 'V') 
+        
+        temp = (37.6 * channel.voltage) - 37.4
+        print('Temp: ' + temp + 'C')
+        
         time.sleep(0.5)
         if(a == 1):
                 GPIO.output(18, GPIO.HIGH)
