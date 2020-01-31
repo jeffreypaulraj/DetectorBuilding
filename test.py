@@ -20,8 +20,6 @@ GPIO.setup(24,GPIO.OUT)
 #pin 23 is green 
 #pin 24 is blue 
 
-a = 3
-
 channel = AnalogIn(mcp, MCP.P0)
 
 while True:
@@ -32,11 +30,11 @@ while True:
         print('Temp: ' + temp + 'C')
         
         time.sleep(0.5)
-        if(a == 1):
+        if(temp <= 20):
                 GPIO.output(18, GPIO.HIGH)
-        if(a == 2):
+        if(temp > 20 and temp <= 50):
                 GPIO.output(23, GPIO.HIGH)
-        if(a == 3):
+        if(temp > 50):
                 GPIO.output(24, GPIO.HIGH)
 
 
